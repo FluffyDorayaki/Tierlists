@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Tier List</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #1e1e1e;
+    color: white;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.tier {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.tier-label {
+    width: 80px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.s { background: #00c986; }
+.a { background: #6dde6d; }
+.b { background: #93bd33; }
+.c { background: #e6d515; }
+.d { background: #e7833c; }
+.f { background: #4e4b52; }
+
+.tier-content {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    background: #2a2a2a;
+}
+
+.character {
+    position: relative;
+}
+
+.character img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+    padding: 6px;
+}
+
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    background: #111;
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 100;
+    text-align: left;
+    font-size: 14px;
+}
+
+.character:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #222;
+    padding: 20px;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.close-btn {
+    margin-top: 10px;
+    padding: 8px 12px;
+}
+</style>
+</head>
+<body>
+
+<h1>Coffee Bags</h1>
+
+<div class="tier">
+    <div class="tier-label s">S</div>
+
+    <div class="tier-content">
+
+<!--        <div class="character"
+             onclick="showPopup('Dragon','Best DPS in the game. Weak against crowd control.')">
+
+            <img src="images/dragon.png" alt="trail">
+
+            <div class="tooltip">
+                <strong>Dragon</strong><br>
+                Best DPS in the game.<br>
+                Weak against crowd control.
+            </div>
+
+        </div>  -->
+
+    </div>
+</div>
+
+<div class="tier">
+    <div class="tier-label a">A</div>
+
+        <div class="tier-content">
+
+            <div class="character"
+             onclick="showPopup('Delta Ritual','Great sweetness/torrado, so vem em 500 grs sadly best one so far')">
+
+            <img src="images/Delta Ritual.jpg" alt="Delta Ritual">
+
+            <div class="tooltip">
+                <strong>Delta Ritual</strong><br>
+                <br>Great sweetness/torrado, so vem em 500 grs sadly best one so far
+            </div> 
+
+        </div>
+
+    </div>
+</div>
+
+<div class="tier">
+    <div class="tier-label b">B</div>
+
+    <div class="tier-content">
+
+        <div class="character"
+             onclick="showPopup('Nicola Bocage','Alta amargura mas not too much.')">
+
+            <img src="images/Nicola Bocage.png" alt="Nicola Bocage">
+
+            <div class="tooltip">
+                <strong>Nicola Bocage</strong><br>
+                </br> Alta amargura mas not too much.
+            </div>
+
+        </div>
+
+        <div class="character"
+             onclick="showPopup('DeltaClassico','Alta amargura mas not too much.')">
+
+            <img src="images/DeltaClassico.png" alt="DeltaClassico">
+
+            <div class="tooltip">
+                <strong>DeltaClassico</strong><br>
+                </br> Stong Classic, nao excede particularmente num campo, mas faz tudo bem, great solid pick
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="tier">
+    <div class="tier-label c">C</div>
+
+    <div class="tier-content">
+
+        <div class="character"
+             onclick="showPopup('Sical','Very tanky. Great beginner choice.')">
+
+            <img src="images/Sical.jpg" alt="Sical">
+
+            <div class="tooltip">
+                <strong>Sical</strong><br>
+                <br> Good armagura/torrado can be a bit overly strong sometimes
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="tier">
+    <div class="tier-label d">D</div>
+
+    <div class="tier-content">
+
+      <!--  <div class="character"
+             onclick="showPopup('Knight','Very tanky. Great beginner choice.')">
+
+            <img src="images/knight.png" alt="Knight">
+
+            <div class="tooltip">
+                <strong>Knight</strong><br>
+                Very tanky.<br>
+                Great beginner choice.
+            </div>
+
+        </div> -->
+
+    </div>
+</div>
+
+<div class="tier">
+    <div class="tier-label f">F</div>
+
+   <div class="tier-content">
+
+     <!--    <div class="character"
+             onclick="showPopup('Knight','Very tanky. Great beginner choice.')">
+
+            <img src="images/knight.png" alt="Knight">
+
+            <div class="tooltip">
+                <strong>Knight</strong><br>
+                Very tanky.<br>
+                Great beginner choice.
+            </div>
+
+        </div>  -->
+
+    </div>
+</div>
+
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h2 id="popupTitle"></h2>
+        <p id="popupText"></p>
+        <button class="close-btn" onclick="hidePopup()">Close</button>
+    </div>
+</div>
+
+<script>
+function showPopup(title, text) {
+    document.getElementById("popupTitle").textContent = title;
+    document.getElementById("popupText").textContent = text;
+    document.getElementById("popup").style.display = "flex";
+}
+
+function hidePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
